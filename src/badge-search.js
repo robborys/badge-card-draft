@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
-
-const logo = new URL('../assets/open-wc-logo.svg', import.meta.url).href;
+import "@lrnwebcomponents/simple-icon/simple-icon.js";
+import "@lrnwebcomponents/simple-icon/lib/simple-icons.js";
 
 class BadgeSearch extends LitElement {
   static properties = {
@@ -9,6 +9,12 @@ class BadgeSearch extends LitElement {
 
   static styles = css`
 
+    .wrapper {
+      background color: green;
+      width: 450px;
+      height: 250px;
+    }
+
     .frame {
       width: 400px;
       height: 250px;
@@ -16,7 +22,9 @@ class BadgeSearch extends LitElement {
       border-radius: 10px;
       margin: 10px;
       border: 5px solid black;
-      box-shadow: -4px -3px 45px 21px rgba(0,0,0,0.35);    }
+      box-shadow: -4px -3px 45px 21px rgba(0,0,0,0.35);    
+      
+    }
 
     .categoryLabel {
       border-bottom: 3.5px solid black;
@@ -38,6 +46,12 @@ class BadgeSearch extends LitElement {
       word-wrap: break-word;
     }
 
+    .courseTitle h3 {
+
+      margin-top: 0px;
+
+    }
+
     .course-icon {
       float: right;
       max-width: 125px;
@@ -55,8 +69,12 @@ class BadgeSearch extends LitElement {
     .creator-title span {
       align-self: flex-end;
       vertical-align: bottom;
-    }
+    } 
 
+    .icon
+    {
+      margin top: 400px;
+    }
 
   `;
 
@@ -66,19 +84,34 @@ class BadgeSearch extends LitElement {
   }
 
   render() {
-    return html`
+
+return html`
+
+
+
+<simple-icon accent-color="light-green" icon="mdextra:vector-polyline-plus">ICON</simple-icon>
+
+
+
+<simple-iconset-demo></simple-iconset-demo>
+
+
+  <div class="wrapper">
     <div class="frame">
       <div class="categoryLabel">
         <h4>Computer Sceinces</h4>
       <div>
       <img class="course-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Simple_icon_location.svg/100px-Simple_icon_location.svg.png">
       <div class="courseTitle">
-        <h2>PLACEHOLDER 101</h2>
+        <h4>ENGL 215</h4>
       </div>
       <div class="creator-title">
         <span>Creator: John Cena</span>
       </div>
     </div>
+  </div>
+
+
      `;
   }
 }
