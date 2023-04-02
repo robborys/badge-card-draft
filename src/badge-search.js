@@ -1,18 +1,26 @@
 import { LitElement, html, css } from 'lit';
 import "@lrnwebcomponents/simple-icon/simple-icon.js";
 import "@lrnwebcomponents/simple-icon/lib/simple-icons.js";
+import { SimpleIcon } from '@lrnwebcomponents/simple-icon/simple-icon.js';
 
 class BadgeSearch extends LitElement {
   static properties = {
-    header: { type: String },
+    creatorName: {type: String},
+    courseName: {type: String},
+    courseCategory: {type: String},
+    courseIcon: {type: String},
+    courseColor: {type: String}
   }
 
   static styles = css`
 
     .wrapper {
-      background color: green;
-      width: 450px;
+      background-color: green;
+      width: 420px;
       height: 250px;
+      border: 3px solid black;
+      border-radius: 10px;
+      margin: 10px;
     }
 
     .frame {
@@ -20,10 +28,11 @@ class BadgeSearch extends LitElement {
       height: 250px;
       background-color: #d3d3d3;
       border-radius: 10px;
-      margin: 10px;
-      border: 5px solid black;
+      border: 1px solid black;
       box-shadow: -4px -3px 45px 21px rgba(0,0,0,0.35);    
-      
+      margin-left: 20px;
+      border-left: 2px solid black;
+      border-right: 2px solid black;
     }
 
     .categoryLabel {
@@ -54,10 +63,8 @@ class BadgeSearch extends LitElement {
 
     .course-icon {
       float: right;
-      max-width: 125px;
-      margin-right: 10px;
-      padding-top: 32px;
-      display: flex;
+      padding-right: 30px;
+      padding-top: 30px;
     }
 
     .creator-title {
@@ -71,25 +78,24 @@ class BadgeSearch extends LitElement {
       vertical-align: bottom;
     } 
 
-    .icon
-    {
-      margin top: 400px;
-    }
+
 
   `;
 
   constructor() {
     super();
     this.header = 'My app';
+    this.creatorName = 'Prof. BTO Pro';
+    this.courseName =  'IST 256';
+    this.courseCategory = 'Information Sciences and Technology';
+    this.courseIcon = 'extension';
+    this.courseColor = 'Red'; 
   }
 
   render() {
 
 return html`
 
-
-
-<simple-icon accent-color="light-green" icon="mdextra:vector-polyline-plus">ICON</simple-icon>
 
 
 
@@ -99,14 +105,20 @@ return html`
   <div class="wrapper">
     <div class="frame">
       <div class="categoryLabel">
-        <h4>Computer Sceinces</h4>
+        <h4>${this.courseCategory}</h4>
       <div>
-      <img class="course-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Simple_icon_location.svg/100px-Simple_icon_location.svg.png">
+
+
+
+      <simple-icon class="course-icon" accent-color="green" icon=${this.courseIcon} style="--simple-icon-width:100px;--simple-icon-height:100px;">
+</simple-icon>
+
+
       <div class="courseTitle">
-        <h4>ENGL 215</h4>
+        <h4>${this.courseName}</h4>
       </div>
       <div class="creator-title">
-        <span>Creator: John Cena</span>
+        <span>Creator: ${this.creatorName}</span>
       </div>
     </div>
   </div>
@@ -117,3 +129,4 @@ return html`
 }
 
 customElements.define('badge-search', BadgeSearch);
+
